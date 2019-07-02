@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/sell?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+  jpa:
+    show-sql: true
+  jackson:
+
+    #默认全局返回参数为null时 不返回字段名
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.0.106
+    port: 6379
+
+    #activeMQ设置
+  activemq:
+    broker-url:  tcp://localhost:61616
+    user: admin
+    password: admin
+    #password:因为redis没有密码说以不加
+server:
+  servlet:
+    context-path: /sell
+
+wechat:
+  mpAppId: wxd898fcb01713c658
+  mpAppSecret: 29d8a650db31472aa87800e3b0d739f2
+
+projectUrl:
+   sell: 123456
+
+
+mybatis:
+    configuration:
+     #设置mybatis自动转换成驼峰式命名
+     map-underscore-to-camel-case: true
+logging:
+  level:
+  #由于mabatis不好显示查询语句  所以在这里指定包路径   使其该路径下的日志级别设置成trace  就能得到sql语句查询
+    com.lgx.dataobject.mapper: trace
